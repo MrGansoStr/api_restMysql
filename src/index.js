@@ -26,9 +26,10 @@ app.get('/', controller.default_page);
 app.get('/users', controller.getUsers);
 app.post('/login', controller.login);
 app.post('/receipt', controller.getReceipt);
-
+app.post('/receipts', controller.getReceipts);
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
+
 const port = process.env.PORT || 4000;
 app.listen(port)
 console.log(`Listening on PORT: ${port}`);

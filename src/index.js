@@ -6,8 +6,10 @@ const cors = require('cors');
 // Controladores
 const controller = require('./controllers/controllers.js');
 
-// Options
+// Validators
+const validator = require('./utilities/validatorCredentials.js');
 
+// Options
 const corsOptions = {
   origin: true,
   credentials: true
@@ -20,9 +22,11 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
 // Routes 
-
 app.get('/', controller.default_page);
 app.get('/users', controller.getUsers);
+app.post('/login', controller.login);
+app.post('/receipt', controller.getReceipt);
+
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
 const port = process.env.PORT || 4000;

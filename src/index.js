@@ -22,7 +22,7 @@ app.options('*', cors(corsOptions));
 // Routes 
 
 app.get('/', controller.default_page);
-
+app.get('/users', controller.getUsers);
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
 const port = process.env.PORT || 4000;

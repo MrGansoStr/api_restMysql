@@ -6,7 +6,7 @@ async function connectDB() {
     host: config.host,
     user: config.userdtb,
     password: config.passdb,
-    database: config.db,
+    database: config.dbname,
     ssl: {
       rejectUnauthorized: false
     }

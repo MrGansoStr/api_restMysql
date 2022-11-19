@@ -25,6 +25,6 @@ app.get('/', controller.default_page);
 
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
-const port = 4000;
-app.listen(port);
-console.log(`Listening on PORT: ${4000}`);
+const port = process.env.PORT || 4000;
+app.listen(port)
+console.log(`Listening on PORT: ${port}`);

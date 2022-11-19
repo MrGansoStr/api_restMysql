@@ -14,7 +14,7 @@ const Login = async (req, res) => {
     const [result] = await connection.query(queries.LOGIN, [credentials.codeConexion, credentials.LnameP.toLowerCase()]);
 
     if (result.length === 0) {
-      return res.status(401).json({ message: "Codigo de Conexion o Apellido Parteno Incorrecto" });
+      return res.status(401).json({ message: "Codigo de Conexion o Apellido Parteno Incorrectos" });
     }
 
     const token = await jwt.sign({ name: credentials.codeConexion }, "theSecretKeyForTOKEN", {

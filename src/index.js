@@ -29,6 +29,8 @@ app.post('/receipt', controller.getReceipt);
 app.post('/receipts', controller.getReceipts);
 app.post('/expireds', controller.getReceiptsExpired);
 app.post('/balance', controller.getBalance);
+app.post('/transactions', controller.getTransacions);
+
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
 

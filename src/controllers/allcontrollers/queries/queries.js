@@ -8,10 +8,13 @@ const GETRECEIPTEXPIRED = 'SELECT a.id_receipt, a.code_conexion, MONTH(a.month_f
 
 const BALANCE = 'SELECT a.id_user, a.dni, b.val FROM users a JOIN balance b ON a.id_user = b.id_user_child WHERE a.id_user = ?';
 
+const GETTRANSACTIONS = 'SELECT a.id_user, a.dni, b.id_receipt_child, b.id_transaction_encoded, b.time, b.status, b.payedWith FROM users a JOIN transactions b ON a.id_user = b.id_user_child WHERE b.id_user_child = ?';
+
 module.exports = {
   LOGIN,
   GETRECEIPT,
   GETRECEIPTS,
   GETRECEIPTEXPIRED,
   BALANCE,
+  GETTRANSACTIONS,
 };

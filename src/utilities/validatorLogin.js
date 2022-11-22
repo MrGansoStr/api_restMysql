@@ -2,7 +2,7 @@ const validatorLogin = (obj) => {
   if(obj.codeConexion.length < 8 || obj.codeConexion.length > 10) {
     return false;
   }
-  if(obj.LnameP.length === 0) {
+  if(obj.LnameP?.length === 0) {
     return false;
   }
   if(Object.keys(obj).length > 2) {

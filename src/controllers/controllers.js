@@ -7,6 +7,7 @@ const getReceipts = require('./allcontrollers/getReceipts.js');
 const getReceiptsExpired = require('./allcontrollers/getReceiptsExpired.js');
 const getBalance = require('./allcontrollers/getBalance.js');
 const getTransacions = require('./allcontrollers/getTransactions.js');
+const updateToken = require('./allcontrollers/updateToken.js');
 
 module.exports = {
   default_page,
@@ -18,4 +19,5 @@ module.exports = {
   getReceiptsExpired,
   getBalance,
   getTransacions,
+  updateToken
 };

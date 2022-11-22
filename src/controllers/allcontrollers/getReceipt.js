@@ -7,11 +7,11 @@ const messages = require('./messages/messages.js');
 const getReceipt = async (req, res) => {
   let credentials = { ...req.body };
   if (!validInput(credentials)) {
-    return res.status(403).send({ message: "Inputs invalidos" });
+    return res.status(403).send({ message: "Entradas invalidas" });
   }
   try {
     const connection = await connectDB();
-    const [result] = await connection.query(queries.GETRECEIPT, [credentials.userid]);
+    const [result] = await connection.query(queries.GETRECEIPT, [credentials.userid, credentials.receiptid]);
     if (result.length === 0) {
       return res.status(403).send(messages.MSGEMPTYROWS);
       //return res.status(403).send({ message: "No se encontro recibos" });

@@ -1,6 +1,6 @@
 {
   "name": "backendnormal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "API_REST para el back-end",
   "main": "./src/index.js",
   "engines": {

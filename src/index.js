@@ -8,6 +8,7 @@ const controller = require('./controllers/controllers.js');
 
 // Validators
 const validator = require('./utilities/validatorCredentials.js');
+const validateToken = require('./controllers/controllerHeader/validateToken.js');
 
 // Options
 const corsOptions = {
@@ -25,11 +26,12 @@ app.options('*', cors(corsOptions));
 app.get('/', controller.default_page);
 app.get('/users', controller.getUsers);
 app.post('/login', controller.login);
-app.post('/receipt', controller.getReceipt);
-app.post('/receipts', controller.getReceipts);
-app.post('/expireds', controller.getReceiptsExpired);
-app.post('/balance', controller.getBalance);
-app.post('/transactions', controller.getTransacions);
+app.post('/receipt', validateToken, controller.getReceipt);
+app.post('/receipts', validateToken, controller.getReceipts);
+app.post('/expireds', validateToken, controller.getReceiptsExpired);
+app.post('/balance', validateToken, controller.getBalance);
+app.post('/transactions', validateToken, controller.getTransacions);
+app.post('/updatetoken', validateToken, controller.updateToken);
 
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);

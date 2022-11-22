@@ -17,14 +17,14 @@ const Login = async (req, res) => {
       return res.status(401).json({ message: "Codigo de Conexion o Apellido Parteno Incorrectos" });
     }
 
-    const token = await jwt.sign({ name: credentials.codeConexion }, "theSecretKeyForTOKEN", {
-      expiresIn: "2h",
+    const token = await jwt.sign({ codeConexion: credentials.codeConexion, LnameP: credentials.LnameP }, "theSecretKeyForTOKEN", {
+      expiresIn: "4h",
     });
 
     let FinalResponse = {
       message: "Inicio de sesion exitoso",
       accessToken: token,
-      expiresIn: "2h",
+      expiresIn: "4h",
       userInfo: result[0],
     };
     return res.status(200).send(FinalResponse);

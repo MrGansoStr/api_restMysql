@@ -8,9 +8,13 @@ const GETRECEIPTEXPIRED = 'SELECT a.id_receipt, a.code_conexion, MONTH(a.month_f
 
 const BALANCE = 'SELECT a.id_user, a.dni, b.val FROM users a JOIN balance b ON a.id_user = b.id_user_child WHERE a.id_user = ?';
 
-const GETTRANSACTIONS = 'SELECT a.id_user, a.dni, b.id_receipt_child, b.id_transaction_encoded, b.time, b.status, b.payedWith FROM users a JOIN transactions b ON a.id_user = b.id_user_child WHERE b.id_user_child = ?';
+const GETTRANSACTIONS = 'SELECT a.id_user, a.dni, b.id_transaction, b.id_receipt_child, b.id_transaction_encoded, b.time, b.status, b.payedWith FROM users a JOIN transactions b ON a.id_user = b.id_user_child WHERE b.id_user_child = ?';
 
 const UPDATETOKEN = 'UPDATE users SET token = ? WHERE id_user = ? ';
+
+const GENERATETRANSACTION = 'INSERT INTO transactions (id_transaction, id_receipt_child, id_user_child, id_transaction_encoded, time, status, payedWith) VALUES (default, ?, ?, ?, ?, 1, ?)';
+
+const GETRECEIPTSPENDING = 'SELECT a.id_receipt, a.code_conexion, MONTH(a.month_factured) AS monthFactured, YEAR(a.month_factured) AS yearFactured, a.number_receipt, a.mount, a.state, YEAR(a.issue) AS issueYear, MONTH(a.issue) AS issueMonth, DAY(a.issue) AS issueDay, YEAR(a.expires) AS expiresYear, MONTH(a.expires) AS expiresMonth, DAY(a.expires) AS expiresDay, b.Fname, b.LnameP FROM receipts a, users b, service c, supply_details d WHERE b.id_user = a.id_user_child AND c.id_service = b.id_service_child AND a.id_user_child = ? AND a.state = 3 ';
 
 module.exports = {
   LOGIN,
@@ -20,4 +24,6 @@ module.exports = {
   BALANCE,
   GETTRANSACTIONS,
   UPDATETOKEN,
+  GENERATETRANSACTION,
+  GETRECEIPTSPENDING
 };

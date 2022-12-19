@@ -10,6 +10,7 @@ const getTransacions = require('./allcontrollers/getTransactions.js');
 const updateToken = require('./allcontrollers/updateToken.js');
 const genTransaction = require('./allcontrollers/genTransaction.js');
 const getReceiptsPending = require('./allcontrollers/getReceiptsPending');
+const updateUserInfo = require('./allcontrollers/updateUserInfo.js');
 
 module.exports = {
   default_page,
@@ -23,5 +24,6 @@ module.exports = {
   getTransacions,
   updateToken,
   genTransaction,
-  getReceiptsPending
+  getReceiptsPending,
+  updateUserInfo
 };

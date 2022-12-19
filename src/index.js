@@ -33,7 +33,8 @@ app.post('/balance', validateToken, controller.getBalance);
 app.post('/transactions', validateToken, controller.getTransacions);
 app.post('/updatetoken', validateToken, controller.updateToken);
 app.post('/generatetransaction', controller.genTransaction);
-app.post('/pendings', controller.getReceiptsPending);
+app.post('/pendings', validateToken, controller.getReceiptsPending);
+app.post('/updateinfo', validateToken, controller.updateUserInfo);
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
 

@@ -16,6 +16,8 @@ const GENERATETRANSACTION = 'INSERT INTO transactions (id_transaction, id_receip
 
 const GETRECEIPTSPENDING = 'SELECT a.id_receipt, a.code_conexion, MONTH(a.month_factured) AS monthFactured, YEAR(a.month_factured) AS yearFactured, a.number_receipt, a.mount, a.state, YEAR(a.issue) AS issueYear, MONTH(a.issue) AS issueMonth, DAY(a.issue) AS issueDay, YEAR(a.expires) AS expiresYear, MONTH(a.expires) AS expiresMonth, DAY(a.expires) AS expiresDay, b.Fname, b.LnameP FROM receipts a, users b, service c, supply_details d WHERE b.id_user = a.id_user_child AND c.id_service = b.id_service_child AND a.id_user_child = ? AND a.state = 3 ';
 
+const UPDATEUSERINFO = 'UPDATE users SET email = ? WHERE id_user = ?';
+
 module.exports = {
   LOGIN,
   GETRECEIPT,
@@ -25,5 +27,6 @@ module.exports = {
   GETTRANSACTIONS,
   UPDATETOKEN,
   GENERATETRANSACTION,
-  GETRECEIPTSPENDING
+  GETRECEIPTSPENDING,
+  UPDATEUSERINFO
 };

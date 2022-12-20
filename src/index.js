@@ -36,6 +36,8 @@ app.post('/generatetransaction', controller.genTransaction);
 app.post('/pendings', validateToken, controller.getReceiptsPending);
 app.put('/updateinfo', validateToken, controller.updateUserInfo);
 app.delete('/deleteuser', validateToken,controller.deleteUser);
+app.post('/adduser',validateToken, controller.registerUser);
+app.post('/getcredentials',validateToken, controller.getCredentialsUser);
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
 

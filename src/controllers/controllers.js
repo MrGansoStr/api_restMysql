@@ -13,6 +13,7 @@ const getReceiptsPending = require('./allcontrollers/getReceiptsPending');
 const updateUserInfo = require('./allcontrollers/updateUserInfo.js');
 const deleteUser = require('./allcontrollers/deleteUser.js');
 const registerUser = require('./allcontrollers/registerUser.js');
+const getCredentialsUser = require('./allcontrollers/getCredentialsUser.js');
 
 module.exports = {
   default_page,
@@ -29,5 +30,6 @@ module.exports = {
   getReceiptsPending,
   updateUserInfo,
   deleteUser,
-  registerUser
+  registerUser,
+  getCredentialsUser
 };

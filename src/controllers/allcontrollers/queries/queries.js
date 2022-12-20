@@ -19,8 +19,17 @@ const GETRECEIPTSPENDING = 'SELECT a.id_receipt, a.code_conexion, MONTH(a.month_
 const UPDATEUSERINFO = 'UPDATE users SET email = ? WHERE id_user = ?';
 
 const DELETEUSER = 'DELETE FROM users WHERE id_user = ?';
+///////////////
+//For register user
+const REGISTERUSER = 'INSERT INTO users (id_user, user_rol, Fname, LnameP, LnameM, dni, username, password, email, phone, address, type, token, id_service_child) VALUES (default, ?, ?, ?, ?, ?, "user", "pass", ?, ?, ?, "persontestdefault", "tokendefault", 5)';
 
-const REGISTERUSER = '';
+const HELPSEARCHUSERID = 'SELECT id_user, Fname, LnameP, dni FROM users WHERE dni = ?';
+
+const REGISTERONERECEIPT = 'INSERT INTO receipts (id_receipt, id_user_child, code_conexion, month_factured, number_receipt, mount, state, issue, expires) VALUES (default, ?, ?, "2022-12-20", ?, 1.0, 1, "2023-01-01", "2023-01-01")';
+//For register user
+///////////////////
+const GETCREDENTIALSUSER = 'SELECT a.LnameP, b.code_conexion FROM users a JOIN receipts b ON a.id_user = b.id_user_child WHERE a.dni = ?';
+
 module.exports = {
   LOGIN,
   GETRECEIPT,
@@ -33,5 +42,8 @@ module.exports = {
   GETRECEIPTSPENDING,
   UPDATEUSERINFO,
   DELETEUSER,
-  REGISTERUSER
+  REGISTERUSER,
+  HELPSEARCHUSERID,
+  REGISTERONERECEIPT,
+  GETCREDENTIALSUSER
 };

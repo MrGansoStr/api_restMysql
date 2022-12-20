@@ -18,6 +18,9 @@ const GETRECEIPTSPENDING = 'SELECT a.id_receipt, a.code_conexion, MONTH(a.month_
 
 const UPDATEUSERINFO = 'UPDATE users SET email = ? WHERE id_user = ?';
 
+const DELETEUSER = 'DELETE FROM users WHERE id_user = ?';
+
+const REGISTERUSER = '';
 module.exports = {
   LOGIN,
   GETRECEIPT,
@@ -28,5 +31,7 @@ module.exports = {
   UPDATETOKEN,
   GENERATETRANSACTION,
   GETRECEIPTSPENDING,
-  UPDATEUSERINFO
+  UPDATEUSERINFO,
+  DELETEUSER,
+  REGISTERUSER
 };

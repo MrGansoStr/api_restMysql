@@ -11,6 +11,8 @@ const updateToken = require('./allcontrollers/updateToken.js');
 const genTransaction = require('./allcontrollers/genTransaction.js');
 const getReceiptsPending = require('./allcontrollers/getReceiptsPending');
 const updateUserInfo = require('./allcontrollers/updateUserInfo.js');
+const deleteUser = require('./allcontrollers/deleteUser.js');
+const registerUser = require('./allcontrollers/registerUser.js');
 
 module.exports = {
   default_page,
@@ -25,5 +27,7 @@ module.exports = {
   updateToken,
   genTransaction,
   getReceiptsPending,
-  updateUserInfo
+  updateUserInfo,
+  deleteUser,
+  registerUser
 };

@@ -34,8 +34,8 @@ app.post('/transactions', validateToken, controller.getTransacions);
 app.post('/updatetoken', validateToken, controller.updateToken);
 app.post('/generatetransaction', controller.genTransaction);
 app.post('/pendings', validateToken, controller.getReceiptsPending);
-app.put('/updateinfo',validateToken, controller.updateUserInfo);
-app.delete('/deleteuser', validateToken,controller.deleteUser);
+app.put('/updateinfo', validateToken, controller.updateUserInfo);
+app.post('/deleteuser', validateToken,controller.deleteUser);
 // Si no encuentra alguna de las rutas
 app.use(controller.notfound_page);
 
